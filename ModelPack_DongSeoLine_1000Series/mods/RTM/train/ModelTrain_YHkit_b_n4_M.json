@@ -17,7 +17,8 @@
 
 	"bogieModel2": {
 		"modelFile": "YHkit_b/bogie.mqo",
-		"textures": [ [ "default", "textures/train/DT138.png" ] ]
+		"textures": [ [ "default", "textures/train/DT138.png" ] ],
+		"rendererPath": "scripts/bogie.js"
 	},
 
 	"buttonTexture": "textures/train/YHkit_b/button/M2.png",
