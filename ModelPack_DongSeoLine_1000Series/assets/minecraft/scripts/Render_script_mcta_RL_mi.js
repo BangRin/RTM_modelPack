@@ -27,7 +27,7 @@ function init(par1, par2)
 {
 	//車体
 	body = renderer.registerParts(new Parts("Interior", "front", "in_car_equipment", "in_car_equipment_mx", "door"));
-	body_not_light = renderer.registerParts(new Parts("exterior", "through_door", "hood", "lambord", "equipment", "cable", "cab", "skirt", "panta"))
+	body_not_light = renderer.registerParts(new Parts("exterior", "through_door", "hood", "lambord", "equipment", "cable", "cab", "skirt", "panta"));
 	lightF = renderer.registerParts(new Parts("lightF"));
 	lightB = renderer.registerParts(new Parts("lightB"));
 	ExLF = renderer.registerParts(new Parts("ExLightF"));
