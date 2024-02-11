@@ -1,0 +1,17 @@
+외장 exterior
+내장 Interior
+전면 front
+차내설비 in_car_equipment
+차량내부설비mxin_car_equipment_mx
+관통문 through_door
+포장 hood
+램포트?lambord
+용기류 equipment
+케블 cable
+? 받침대 cab
+스카웃 skirt
+팬?그래프 panta
+도어 door
+반투명 alpha
+라이트 Alight F
+라이트 Blight B

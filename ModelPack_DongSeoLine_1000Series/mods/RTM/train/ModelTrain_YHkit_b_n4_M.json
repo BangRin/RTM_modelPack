@@ -1,0 +1,486 @@
+{
+
+	"trainName": "YHkit_b_n4_M2",
+	"trainType": "EC",
+
+	"trainModel2": {
+		"modelFile": "YHkit_b/YHkit_b_M.mqo",
+		"textures": [
+			[ "mat1", "textures/train/YHkit_b/YHkit_b_M2.png", "Light" ],
+			[ "mat2", "textures/train/YHkit_b/parts.png", "" ],
+			[ "mat3", "textures/train/YHkit_b/alpha.png", "AlphaBlend" ],
+			[ "mat4", "textures/train/YHkit_b/steker.png", "" ],
+			[ "lcd", "textures/train/YHkit_b/lcd/black.png", "Light" ]
+		],
+		"rendererPath": "scripts/Render_script_mcta_RL_mi.js"
+	},
+
+	"bogieModel2": {
+		"modelFile": "YHkit_b/bogie.mqo",
+		"textures": [ [ "default", "textures/train/DT138.png" ] ]
+	},
+
+	"buttonTexture": "textures/train/YHkit_b/button/M2.png",
+
+
+	"rollsignTexture": "textures/train/YHkit_b/sign.png",
+	"rollsignNames": [
+		"NO",
+		"Not_IN_SERVICE",
+		"TEST_RUN",
+		"Y_LOCAL_SHIRONA",
+		"Y_LOCAL_TUKIGAOKA",
+		"Y_LOCAL_TAMANE",
+		"Y_LOCAL_YANAGIKAWA",
+		"Y_LOCAL_MOTOMACHIDAIRA",
+		"Y_LOCAL_KONOEGASAKI",
+		"Y_LOCAL_YORUHAMA",
+		"Y_LOCAL_KAWATANITUKIKAGE",
+		"Y_SEMI.EXP._SHIRONA",
+		"Y_SEMI.EXP._TUKIGAOKA",
+		"Y_SEMI.EXP._TAMANE",
+		"Y_SEMI.EXP._YANAGIKAWA",
+		"Y_SEMI.EXP._MOTOMACHIDAIRA",
+		"Y_SEMI.EXP._KONOEGASAKI",
+		"Y_SEMI.EXP._YORUHAMA",
+		"Y_SEMI.EXP._KAWATANITUKIKAGE",
+		"Y_EXPRESS_SHIRONA",
+		"Y_EXPRESS_TUKIGAOKA",
+		"Y_EXPRESS_TAMANE",
+		"Y_EXPRESS_YANAGIKAWA",
+		"Y_EXPRESS_MOTOMACHIDAIRA",
+		"Y_EXPRESS_KONOEGASAKI",
+		"Y_EXPRESS_YORUHAMA",
+		"Y_EXPRESS_KAWATANITUKIKAGE",
+		"Y_RAPID._SHIRONA",
+		"Y_RAPID._TUKIGAOKA",
+		"Y_RAPID._TAMANE",
+		"Y_RAPID._YANAGIKAWA",
+		"Y_RAPID._MOTOMACHIDAIRA",
+		"Y_RAPID._KONOEGASAKI",
+		"Y_RAPID._YORUHAMA",
+		"Y_RAPID._KAWATANITUKIKAGE",
+		"Y_RAPID.EXP._SHIRONA",
+		"Y_RAPID.EXP._TUKIGAOKA",
+		"Y_RAPID.EXP._TAMANE",
+		"Y_RAPID.EXP._YANAGIKAWA",
+		"Y_RAPID.EXP._MOTOMACHIDAIRA",
+		"Y_RAPID.EXP._KONOEGASAKI",
+		"Y_RAPID.EXP._YORUHAMA",
+		"Y_RAPID.EXP._KAWATANITUKIKAGE",
+		"Y_COM.EXP._SHIRONA",
+		"Y_COM.EXP._TUKIGAOKA",
+		"Y_COM.EXP._TAMANE",
+		"Y_COM.EXP._YANAGIKAWA",
+		"Y_COM.EXP._MOTOMACHIDAIRA",
+		"Y_COM.EXP._KONOEGASAKI",
+		"Y_COM.EXP._YORUHAMA",
+		"Y_COM.EXP._KAWATANITUKIKAGE",
+		"Y_LTD.EXP._SHIRONA",
+		"Y_LTD.EXP._TUKIGAOKA",
+		"Y_LTD.EXP._TAMANE",
+		"Y_LTD.EXP._YANAGIKAWA",
+		"Y_LTD.EXP._MOTOMACHIDAIRA",
+		"Y_LTD.EXP._KONOEGASAKI",
+		"Y_LTD.EXP._YORUHAMA",
+		"Y_LTD.EXP._KAWATANITUKIKAGE",
+		"Not_IN_SERVICE",
+		"TEST_RUN",
+		"Z_LOCAL_SHIRONA",
+		"Y_LOCAL_ZRSHIRONA",
+		"Z_LOCAL_KAMINASU",
+		"Z_LOCAL_MISONASU",
+		"Z_EXPRESS_SHIRONA",
+		"Y_EXPRESS_ZRSHIRONA",
+		"Z_EXPRESS_KAMINASU",
+		"Z_EXPRESS_MISONASU",
+		"Z_S.S.EXP_SHIRONA",
+		"Z_S.S.EXP_KAMINASU",
+		"Z_S.S.EXP_MISONASU",
+		"Z_LTD.EXP._SHIRONA",
+		"Z_LTD.EXP._KAMINASU",
+		"Z_LTD.EXP._MISONASU",
+		"N_LOCAL_KITA-SHIRONA",
+		"N_LOCAL_YAKAMICHO",
+		"N_LOCAL_TUKIBUKURO",
+		"N_LOCAL_SHIRONA",
+		"N_LOCAL_TUKIGAOKA",
+		"N_LOCAL_TAMANE",
+		"N_LOCAL_YANAGIKAWA",
+		"N_LOCAL_MOTOMACHIDAIRA",
+		"N_LOCAL_KONOEGASAKI",
+		"N_LOCAL_YORUHAMA",
+		"N_LOCAL_KAWATANITUKIKAGE",
+		"N_EXPRESS_KITA-SHIRONA",
+		"N_EXPRESS_YAKAMICHO",
+		"N_EXPRESS_TUKIBUKURO",
+		"N_EXPRESS_SHIRONA",
+		"N_EXPRESS_TUKIGAOKA",
+		"N_EXPRESS_TAMANE",
+		"N_EXPRESS_YANAGIKAWA",
+		"N_EXPRESS_MOTOMACHIDAIRA",
+		"N_EXPRESS_KONOEGASAKI",
+		"N_EXPRESS_YORUHAMA",
+		"N_EXPRESS_KAWATANITUKIKAGE",
+		"EXTRA",
+		"INSPECION",
+		"TRAINING_CAR",
+		"NIGHT_EXP",
+		"NIGHT_LTD",
+		"NEW_YEAR",
+		"GEISHUN",
+		"SHINRIYOKU",
+		"KOUYOU",
+		"SHINSETU",
+		"Go_Home_Liner",
+		"Sterlight_Express",
+		"LOCAL_TUKIYOCHO",
+		"EXPRESS_TUKIYOCHO",
+		"DUEL"
+	],
+
+	"rollsigns": [
+		{
+			"uv": [ 0.0, 1.0, 0.0, 1.0 ],
+			"pos": [
+				[
+					[ 1.38, 2.18, -0.28 ],
+					[ 1.38, 2.04, -0.28 ],
+					[ 1.38, 2.04, 0.28 ],
+					[ 1.38, 2.18, 0.28 ]
+				],
+				[
+					[ -1.38, 2.18, 0.28 ],
+					[ -1.38, 2.04, 0.28 ],
+					[ -1.38, 2.04, -0.28 ],
+					[ -1.38, 2.18, -0.28 ]
+				]
+			],
+			"doAnimation": false
+		}
+	],
+
+
+	"soundScriptPath": "scripts/sound_script_mcta.js",
+	"sound_BrakeRelease": "train.rtm_223_release",
+	"sound_BrakeRelease2": "train.brakeR_w",
+	"sound_Horn": "train.rtm_wh_00l",
+	"sound_DoorOpen": "sound_mcta_mi:train.rtm_mcta_doorclose_mi",
+	"sound_DoorClose": "sound_mcta_mi:train.rtm_mcta_dooropen_mi",
+
+	"seatPos": [
+		[ 12, 0, 130, 2 ],
+		[ 12, 0, 110, 2 ],
+		[ 12, 0, 90, 2 ],
+		[ 12, 0, 70, 2 ],
+		[ 12, 0, 50, 2 ],
+		[ 12, 0, 30, 2 ],
+		[ 12, 0, 10, 2 ],
+		[ 12, 0, -130, 2 ],
+		[ 12, 0, -110, 2 ],
+		[ 12, 0, -90, 2 ],
+		[ 12, 0, -70, 2 ],
+		[ 12, 0, -50, 2 ],
+		[ 12, 0, -30, 2 ],
+		[ 12, 0, -10, 2 ],
+		[ -12, 0, 130, 2 ],
+		[ -12, 0, 110, 2 ],
+		[ -12, 0, 90, 2 ],
+		[ -12, 0, 70, 2 ],
+		[ -12, 0, 50, 2 ],
+		[ -12, 0, 30, 2 ],
+		[ -12, 0, 10, 2 ],
+		[ -12, 0, -130, 2 ],
+		[ -12, 0, -110, 2 ],
+		[ -12, 0, -90, 2 ],
+		[ -12, 0, -70, 2 ],
+		[ -12, 0, -50, 2 ],
+		[ -12, 0, -30, 2 ],
+		[ -12, 0, -10, 2 ]
+	],
+
+
+	"doCulling": true,
+	"renderLight": true,
+	"smoothing": true,
+	"playerPos": [
+		[ 0.0, 0.2, 8.95 ],
+		[ 0.0, 0.2, -8.95 ]
+	],
+	"bogiePos": [
+		[ 0.0, 0.0, 6.8 ],
+		[ 0.0, 0.0, -6.8 ]
+	],
+	"accelerateion": 0.0024304,
+	"maxSpeed": [ 0.40, 0.84, 1.08, 1.39, 1.60 ],
+	"trainDistance": 10.0,
+
+	"door_left": [
+		{
+			"objects": [ "doorFL", "doorFL1" ],
+			"pos": [ 0.0, 0.0, 0.0 ],
+			"transform": [ [ 0.0, 0.0, 0.65 ] ]
+		},
+		{
+			"objects": [ "doorBL", "doorBL1" ],
+			"pos": [ 0.0, 0.0, 0.0 ],
+			"transform": [ [ 0.0, 0.0, -0.65 ] ]
+		}
+	],
+	"door_right": [
+		{
+			"objects": [ "doorFR", "doorFR1" ],
+			"pos": [ 0.0, 0.0, 0.0 ],
+			"transform": [ [ 0.0, 0.0, 0.65 ] ]
+		},
+		{
+			"objects": [ "doorBR", "doorBR1" ],
+			"pos": [ 0.0, 0.0, 0.0 ],
+			"transform": [ [ 0.0, 0.0, -0.65 ] ]
+		}
+	],
+
+	"pantograph_front": [
+		{
+			"objects": [ "panta_A1_1" ],
+			"pos": [ 0.0, 2.8784, 7.5224 ],
+			"transform": [ [ 15, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_A1_2" ],
+					"pos": [ 0.0, 3.6729, 8.5431 ],
+					"transform": [ [ -26, 1.0, 0.0, 0.0 ] ],
+					"childParts": [
+						{
+							"objects": [ "panta_A1_3" ],
+							"pos": [ 0.0, 4.6101, 7.0935 ],
+							"transform": [ [ 11, 1.0, 0.0, 0.0 ] ]
+						}
+					]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_A1_4" ],
+			"pos": [ 0.0, 2.8784, 6.4776 ],
+			"transform": [ [ -15, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_A1_5" ],
+					"pos": [ 0.0, 3.6729, 5.4569 ],
+					"transform": [ [ 26, 1.0, 0.0, 0.0 ] ]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_A2_1" ],
+			"pos": [ 0.0, 2.8784, -6.4776 ],
+			"transform": [ [ 15, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_A2_2" ],
+					"pos": [ 0.0, 3.6729, -5.4569 ],
+					"transform": [ [ -26, 1.0, 0.0, 0.0 ] ],
+					"childParts": [
+						{
+							"objects": [ "panta_A2_3" ],
+							"pos": [ 0.0, 4.6101, -6.9065 ],
+							"transform": [ [ 11, 1.0, 0.0, 0.0 ] ]
+						}
+					]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_A2_4" ],
+			"pos": [ 0.0, 2.8784, -7.5224 ],
+			"transform": [ [ -15, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_A2_5" ],
+					"pos": [ 0.0, 3.6729, -8.5431 ],
+					"transform": [ [ 26, 1.0, 0.0, 0.0 ] ]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_B1_1" ],
+			"pos": [ 0.0, 2.8784, 6.4776 ],
+			"transform": [ [ 12, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_B1_2" ],
+					"pos": [ 0.0, 3.8526, 7.9300 ],
+					"transform": [ [ -27, 1.0, 0.0, 0.0 ] ],
+					"childParts": [
+						{
+							"objects": [ "panta_B1_3" ],
+							"pos": [ 0.0, 4.6227, 7.0229 ],
+							"transform": [ [ 15, 1.0, 0.0, 0.0 ] ]
+						}
+					]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_B1_4" ],
+			"pos": [ 0.0, 2.8784, 7.5224 ],
+			"transform": [ [ -12, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_B1_5" ],
+					"pos": [ 0.0, 3.8526, 6.0700 ],
+					"transform": [ [ 27, 1.0, 0.0, 0.0 ] ]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_B2_1" ],
+			"pos": [ 0.0, 2.8784, -7.5224 ],
+			"transform": [ [ 12, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_B2_2" ],
+					"pos": [ 0.0, 3.8526, -6.0700 ],
+					"transform": [ [ -27, 1.0, 0.0, 0.0 ] ],
+					"childParts": [
+						{
+							"objects": [ "panta_B2_3" ],
+							"pos": [ 0.0, 4.6227, -6.9771 ],
+							"transform": [ [ 15, 1.0, 0.0, 0.0 ] ]
+						}
+					]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_B2_4" ],
+			"pos": [ 0.0, 2.8784, -6.4776 ],
+			"transform": [ [ -12, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_B2_5" ],
+					"pos": [ 0.0, 3.8526, -7.9300 ],
+					"transform": [ [ 27, 1.0, 0.0, 0.0 ] ]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_C1_1" ],
+			"pos": [ 0.0, 3.0118, 6.6860 ],
+			"transform": [ [ 14, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_C1_2" ],
+					"pos": [ 0.0, 3.7151, 7.8641 ],
+					"transform": [ [ -24, 1.0, 0.0, 0.0 ] ],
+					"childParts": [
+						{
+							"objects": [ "panta_C1_3" ],
+							"pos": [ 0.0, 4.5998, 6.3814 ],
+							"transform": [ [ 10, 1.0, 0.0, 0.0 ] ]
+						},
+						{
+							"objects": [ "panta_C1_5" ],
+							"pos": [ 0.0, 3.5258, 7.9758 ],
+							"transform": [ [ 28, 1.0, 0.0, 0.0 ] ]
+						}
+					]
+				},
+				{
+					"objects": [ "panta_C1_4" ],
+					"pos": [ 0.0, 3.6084, 7.7523 ],
+					"transform": [ [ -24, 1.0, 0.0, 0.0 ] ]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_C2_1" ],
+			"pos": [ 0.0, 3.0118, -7.3140 ],
+			"transform": [ [ 14, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_C2_2" ],
+					"pos": [ 0.0, 3.7151, -6.1359 ],
+					"transform": [ [ -24, 1.0, 0.0, 0.0 ] ],
+					"childParts": [
+						{
+							"objects": [ "panta_C2_3" ],
+							"pos": [ 0.0, 4.5998, -7.6186 ],
+							"transform": [ [ 10, 1.0, 0.0, 0.0 ] ]
+						},
+						{
+							"objects": [ "panta_C2_5" ],
+							"pos": [ 0.0, 3.5258, -6.0242 ],
+							"transform": [ [ 28, 1.0, 0.0, 0.0 ] ]
+						}
+					]
+				},
+				{
+					"objects": [ "panta_C2_4" ],
+					"pos": [ 0.0, 3.6084, -6.2477 ],
+					"transform": [ [ -24, 1.0, 0.0, 0.0 ] ]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_D1_1" ],
+			"pos": [ 0.0, 3.0118, 7.3140 ],
+			"transform": [ [ -14, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_D1_2" ],
+					"pos": [ 0.0, 3.7151, 6.1359 ],
+					"transform": [ [ 24, 1.0, 0.0, 0.0 ] ],
+					"childParts": [
+						{
+							"objects": [ "panta_D1_3" ],
+							"pos": [ 0.0, 4.5998, 7.6186 ],
+							"transform": [ [ -10, 1.0, 0.0, 0.0 ] ]
+						},
+						{
+							"objects": [ "panta_D1_5" ],
+							"pos": [ 0.0, 3.5258, 6.0242 ],
+							"transform": [ [ -28, 1.0, 0.0, 0.0 ] ]
+						}
+					]
+				},
+				{
+					"objects": [ "panta_D1_4" ],
+					"pos": [ 0.0, 3.6084, 6.2477 ],
+					"transform": [ [ 24, 1.0, 0.0, 0.0 ] ]
+				}
+			]
+		},
+		{
+			"objects": [ "panta_D2_1" ],
+			"pos": [ 0.0, 3.0118, -6.6860 ],
+			"transform": [ [ -14, 1.0, 0.0, 0.0 ] ],
+			"childParts": [
+				{
+					"objects": [ "panta_D2_2" ],
+					"pos": [ 0.0, 3.7151, -7.8641 ],
+					"transform": [ [ 24, 1.0, 0.0, 0.0 ] ],
+					"childParts": [
+						{
+							"objects": [ "panta_D2_3" ],
+							"pos": [ 0.0, 4.5998, -6.3814 ],
+							"transform": [ [ -10, 1.0, 0.0, 0.0 ] ]
+						},
+						{
+							"objects": [ "panta_D2_5" ],
+							"pos": [ 0.0, 3.5258, -7.9758 ],
+							"transform": [ [ -28, 1.0, 0.0, 0.0 ] ]
+						}
+					]
+				},
+				{
+					"objects": [ "panta_D2_4" ],
+					"pos": [ 0.0, 3.6084, -7.7523 ],
+					"transform": [ [ 24, 1.0, 0.0, 0.0 ] ]
+				}
+			]
+		}
+	]
+
+}
