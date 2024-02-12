@@ -1,5 +1,20 @@
 # ReadMe
 
+## 탑재된 내장기능 소개
+
+### 속도제한계 표출
+
+1. 이 기능은 ATSAssistMod의 기능을 활용한 기능입니다.
+
+2. 지상자 기능을 아래 사진처럼 입력을하면
+![https://ntws.kr/img/2024-02-12_15.15.16.png]
+
+3. 아래 사진처럼 속도 제한 값이 표출이 됩니다.
+
+![https://ntws.kr/img/2024-02-12_15.13.49.png]
+
+
+
 ## 도움을 주신분들
 - 메이테츠600v씨의 Minato Commuter Train_A 개조품입니다.
 - 森林研究所씨의 부품이 포함되어있습니다.
@@ -10,7 +25,7 @@
 - Myebyeol_NOTE 광고 제공
 
 ## 주의사항
-
+- 가능 하면 ATSAssistMod와 함께 사용하는걸 추천드립니다. [DownLoad](https://github.com/Kai-Z-JP/ATSAssistMod/releases/tag/1.7.9)
 - Pc28kSoundLib을 적용하십시오. [DownLoad](https://pcws.kr/www_pcksl/#download)
 - 재배포는 가능하나 미개조 재배포는 하지 말아주세요.
 
