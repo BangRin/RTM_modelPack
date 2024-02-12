@@ -5,14 +5,29 @@
 ### 속도제한계 표출
 
 1. 이 기능은 ATSAssistMod의 기능을 활용한 기능입니다.
-
-![지상자 기능을 아래 사진처럼 입력을하면](https://ntws.kr/img/2024-02-12_15.15.16.png)
+   
+2. 지상자 기능을 아래 사진처럼 입력을하면
+![](https://ntws.kr/img/2024-02-12_15.15.16.png)
 
 3. 아래 사진처럼 속도 제한 값이 표출이 됩니다.
+![](https://ntws.kr/img/2024-02-12_15.13.49.png)
 
-![https://ntws.kr/img/2024-02-12_15.13.49.png]
+### 내부 LCD 표출
 
+1.  이 기능은 ATSAssistMod의 IFTTT를 활용한 기능입니다.
 
+2. IFTTT를 활용하여 데이터맵을 수정해야 합니다.
+
+- key = bitmapLCD_fileName
+- value = (파일이름[확장자 제외X])
+
+![](https://ntws.kr/img/2024-02-12_15.16.32.png)
+
+3. 파일 위치는 모델팩 텍스처폴더 내부에 lcd 폴더에 파일들이 있습니다.
+![](https://ntws.kr/img/filelist.png)
+
+4. 정상적으로 데이터맵에 입력이 된경우 내부 LCD가 바뀐걸 확인하실수 있습니다.
+![](https://ntws.kr/img/2024-02-12_15.16.48.png)
 
 ## 도움을 주신분들
 - 메이테츠600v씨의 Minato Commuter Train_A 개조품입니다.
