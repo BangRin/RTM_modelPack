@@ -1,6 +1,7 @@
 [![McVer](https://img.shields.io/badge/Minecraft-1.7.10-brightgreen)](https://www.minecraft.net/ja-jp)
 [![ForgeVer](https://img.shields.io/badge/Forge-1.7.10%20--%2010.13.4.1614-lightgrey)](https://files.minecraftforge.net/net/minecraftforge/forge/index_1.7.10.html)
 [![KPVer](https://img.shields.io/badge/KaizPatchX-1.7.1-informational)](https://github.com/Kai-Z-JP/KaizPatchX/releases) 
+[![LatestRelease](https://img.shields.io/github/v/release/Kai-Z-JP/ATSAssistMod)](https://github.com/Kai-Z-JP/ATSAssistMod/releases/latest)
 
 # ReadMe
 
