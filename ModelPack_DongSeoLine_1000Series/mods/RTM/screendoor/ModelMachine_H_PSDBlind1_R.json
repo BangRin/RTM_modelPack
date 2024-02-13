@@ -1,0 +1,19 @@
+{
+    "name": "H_PSDBlind1_R",
+    "model": {
+        "modelFile": "Machine/ModelPSD_Blind.mqo",
+        "textures": [
+            [ "C", "textures/Machine/PSD.png", "AlphaBlend" ],
+            [ "R", "textures/Machine/PSD.png", "AlphaBlend" ],
+            [ "L", "textures/Machine/PSD_null.png", "AlphaBlend" ]
+        ],
+        "rendererPath": "scripts/H_RenderPSD.js"
+    },
+    "buttonTexture": "textures/Machine/Button_PSD_BlindR.png",
+    "machineType": "Gate",
+    "renderAABB": [ -13.0, 0.0, -13.0, 13.0, 13.0, 13.0 ],
+    "smoothing": true,
+    "doCulling": false,
+    "accuracy": "LOW",
+    "tags": "holic PSD psd screendoor homedoor blind Blind"
+}
