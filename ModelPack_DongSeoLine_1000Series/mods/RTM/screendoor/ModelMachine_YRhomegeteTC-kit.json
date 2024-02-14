@@ -1,15 +1,15 @@
 {
-  "name": "YR_homegate_Tc1",
-  "model": {
-    "modelFile": "ModelMachine_YRhomegeteTC.mqo",
-      "textures": [["mat1", "textures/Y-home/YRgate.png", ""]],
-      "rendererPath": "scripts/Render_YRHomeGate.js"
-  },
-  "buttonTexture": "textures/Y-home/button/button_tipeYTC1.png",
-  "machineType": "Gate",
-  "smoothing": true,
-  "doCulling": true,
-  "accuracy": "LOW",
-  "renderAABB": [-13.0,0.0,-13.0,13.0,13.0,13.0],
-  "tags": "home door"
+    "name": "YR_homegate_Tc1",
+    "model": {
+        "modelFile": "screendoor/ModelMachine_YRhomegeteTC.mqo",
+        "textures": [ [ "mat1", "textures/screendoor/YRgate.png", "" ] ],
+        "rendererPath": "scripts/Render_YRHomeGate.js"
+    },
+    "buttonTexture": "textures/screendoor/button/button_tipeYTC1.png",
+    "machineType": "Gate",
+    "smoothing": true,
+    "doCulling": true,
+    "accuracy": "LOW",
+    "renderAABB": [ -13.0, 0.0, -13.0, 13.0, 13.0, 13.0 ],
+    "tags": "home door"
 }
