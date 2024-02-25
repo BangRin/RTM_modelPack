@@ -5,7 +5,7 @@
         "textures": [ [ "mat1", "textures/screendoor/YRgate.png", "" ] ],
         "rendererPath": "scripts/Render_YRHomeGate.js"
     },
-    "buttonTexture": "textures/screendoor/button/button_tipeYTC1.png",
+    "buttonTexture": "textures/screendoor/button/button_tipeYM.png",
     "machineType": "Gate",
     "smoothing": true,
     "doCulling": true,
