@@ -1,106 +1,55 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GridDrawar : MonoBehaviour
 {
-    public LineRenderer lr;
-    public float sr, sc;
-    public int rowCount, colCount;
-    public float gridSize;
+    public GameObject cubePrefab; // Inspector에서 할당
+    public int rows = 5; // 홀수
+    public int cols = 5; // 홀수
+    public float cubeSize = 1.0f; // 큐브의 크기
 
-    void OnValidate()
-    {
-        if (rowCount + colCount > 0)
-        {
-            makeGrid(lr, sr, sc, rowCount, colCount);
-        }
-    }
-
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0)) // 마우스 왼쪽 버튼 클릭 감지
-        {
-            RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-            if (Physics.Raycast(ray, out hit))
-            {
-                Vector3 point = hit.point;
-                GetGridCoordinate(point);
-            }
-        }
-    }
-
-    void GetGridCoordinate(Vector3 worldPosition)
-    {
-        int xCoord = Mathf.FloorToInt((worldPosition.x - sr) / gridSize);
-        int zCoord = Mathf.FloorToInt((worldPosition.z - sc) / gridSize);
-
-        // 클릭된 그리드 좌표를 콘솔에 출력 (실제 구현에서는 이 정보를 원하는 대로 사용하세요)
-        Debug.Log($"Grid Coordinates: ({xCoord}, {zCoord})");
-    }
-
-    void initLineRenderer(LineRenderer lr)
-    {
-        lr.startWidth = lr.endWidth = 0.1f;
-        lr.material.color = Color.green;
-    }
-
-    void makeGrid(LineRenderer lr, float sr, float sc, int rowCount, int colCount)
-    {
-        List<Vector3> gridPos = new List<Vector3>();
-
-        float ec = sc + colCount * gridSize;
-
-        gridPos.Add(new Vector3(sr, this.transform.position.y, sc));
-        gridPos.Add(new Vector3(sr, this.transform.position.y, ec));
-
-        int toggle = -1;
-        Vector3 currentPos = new Vector3(sr, this.transform.position.y, ec);
-        for (int i = 0; i < rowCount; i++)
-        {
-            Vector3 nextPos = currentPos;
-
-            nextPos.x += gridSize;
-            gridPos.Add(nextPos);
-
-            nextPos.z += (colCount * toggle * gridSize);
-            gridPos.Add(nextPos);
-
-            currentPos = nextPos;
-            toggle *= -1;
-        }
-
-        currentPos.x = sr;
-        gridPos.Add(currentPos);
-
-        int colToggle = toggle = 1;
-        if (currentPos.z == ec) colToggle = -1;
-
-        for (int i = 0; i < colCount; i++)
-        {
-            Vector3 nextPos = currentPos;
-
-            nextPos.z += (colToggle * gridSize);
-            gridPos.Add(nextPos);
-
-            nextPos.x += (rowCount * toggle * gridSize);
-            gridPos.Add(nextPos);
-
-            currentPos = nextPos;
-            toggle *= -1;
-        }
-
-        lr.positionCount = gridPos.Count;
-        lr.SetPositions(gridPos.ToArray());
-    }
+    // 사용할 색상 정의
+    public Color colorOne = Color.black;
+    public Color colorTwo = Color.white;
 
     void Start()
     {
-        lr = this.GetComponent<LineRenderer>();
-        initLineRenderer(lr);
+        GenerateGrid();
+    }
 
-        makeGrid(lr, sr, sc, rowCount, colCount);
+    void GenerateGrid()
+    {
+        if (rows % 2 == 0 || cols % 2 == 0)
+        {
+            Debug.LogError("Rows and Cols must be odd numbers.");
+            return;
+        }
+
+        // 그리드의 중앙을 (0, 0, 0)으로 설정
+        float offsetX = (cols - 1) * cubeSize / 2;
+        float offsetZ = (rows - 1) * cubeSize / 2;
+
+        for (int i = 0; i < rows; i++)
+        {
+            for (int j = 0; j < cols; j++)
+            {
+                // 각 셀의 위치 계산 (정중앙에 맞추기 위해 .5를 더함)
+                Vector3 position = new Vector3(j * cubeSize - offsetX + 0.5f, 0, i * cubeSize - offsetZ + 0.5f);
+                // 프리팹을 사용하여 셀 생성
+                GameObject cube = Instantiate(cubePrefab, position, Quaternion.identity);
+                cube.transform.parent = this.transform; // 생성된 큐브를 GridGenerator 오브젝트의 자식으로 설정
+
+                // 블록 이름 설정
+                cube.name = $"{j - cols / 2}_{i - rows / 2}";
+
+                // MeshRenderer를 가져와서 색상 설정
+                MeshRenderer renderer = cube.GetComponent<MeshRenderer>();
+                if (renderer != null)
+                {
+                    // 색상을 번갈아 가며 적용
+                    renderer.material.color = (i + j) % 2 == 0 ? colorOne : colorTwo;
+                }
+            }
+        }
     }
 }
