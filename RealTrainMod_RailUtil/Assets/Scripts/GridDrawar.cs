@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GridDrawar : MonoBehaviour
 {
@@ -26,21 +25,21 @@ public class GridDrawar : MonoBehaviour
         }
 
         // 그리드의 중앙을 (0, 0, 0)으로 설정
-        float offsetX = (cols - 1) * cubeSize / 2;
-        float offsetZ = (rows - 1) * cubeSize / 2;
+        int midRow = rows / 2;
+        int midCol = cols / 2;
 
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < cols; j++)
             {
-                // 각 셀의 위치 계산 (정중앙에 맞추기 위해 .5를 더함)
-                Vector3 position = new Vector3(j * cubeSize - offsetX + 0.5f, 0, i * cubeSize - offsetZ + 0.5f);
+                // 각 셀의 위치 계산, 마인크래프트 좌표 시스템과 동일하게 조정
+                Vector3 position = new Vector3(j - midCol, 0, i - midRow);
                 // 프리팹을 사용하여 셀 생성
                 GameObject cube = Instantiate(cubePrefab, position, Quaternion.identity);
                 cube.transform.parent = this.transform; // 생성된 큐브를 GridGenerator 오브젝트의 자식으로 설정
 
                 // 블록 이름 설정
-                cube.name = $"{j - cols / 2}_{i - rows / 2}";
+                cube.name = $"{j - midCol}_{i - midRow}";
 
                 // MeshRenderer를 가져와서 색상 설정
                 MeshRenderer renderer = cube.GetComponent<MeshRenderer>();
