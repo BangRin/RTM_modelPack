@@ -1,14 +1,14 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class GridDrawar : MonoBehaviour
 {
-    public GameObject cubePrefab; // Inspector¿¡¼­ ÇÒ´ç
-    public int rows = 5; // È¦¼ö
-    public int cols = 5; // È¦¼ö
-    public float cubeSize = 1.0f; // Å¥ºêÀÇ Å©±â
+    public GameObject cubePrefab; // Inspectorì—ì„œ í• ë‹¹
+    public int rows = 5; // í™€ìˆ˜
+    public int cols = 5; // í™€ìˆ˜
+    public float cubeSize = 1.0f; // íë¸Œì˜ í¬ê¸°
 
-    // »ç¿ëÇÒ »ö»ó Á¤ÀÇ
+    // ì‚¬ìš©í•  ìƒ‰ìƒ ì •ì˜
     public Color colorOne = Color.black;
     public Color colorTwo = Color.white;
 
@@ -25,7 +25,7 @@ public class GridDrawar : MonoBehaviour
             return;
         }
 
-        // ±×¸®µåÀÇ Áß¾ÓÀ» (0, 0, 0)À¸·Î ¼³Á¤
+        // ê·¸ë¦¬ë“œì˜ ì¤‘ì•™ì„ (0, 0, 0)ìœ¼ë¡œ ì„¤ì •
         float offsetX = (cols - 1) * cubeSize / 2;
         float offsetZ = (rows - 1) * cubeSize / 2;
 
@@ -33,20 +33,20 @@ public class GridDrawar : MonoBehaviour
         {
             for (int j = 0; j < cols; j++)
             {
-                // °¢ ¼¿ÀÇ À§Ä¡ °è»ê (Á¤Áß¾Ó¿¡ ¸ÂÃß±â À§ÇØ .5¸¦ ´õÇÔ)
+                // ê° ì…€ì˜ ìœ„ì¹˜ ê³„ì‚° (ì •ì¤‘ì•™ì— ë§ì¶”ê¸° ìœ„í•´ .5ë¥¼ ë”í•¨)
                 Vector3 position = new Vector3(j * cubeSize - offsetX + 0.5f, 0, i * cubeSize - offsetZ + 0.5f);
-                // ÇÁ¸®ÆÕÀ» »ç¿ëÇÏ¿© ¼¿ »ı¼º
+                // í”„ë¦¬íŒ¹ì„ ì‚¬ìš©í•˜ì—¬ ì…€ ìƒì„±
                 GameObject cube = Instantiate(cubePrefab, position, Quaternion.identity);
-                cube.transform.parent = this.transform; // »ı¼ºµÈ Å¥ºê¸¦ GridGenerator ¿ÀºêÁ§Æ®ÀÇ ÀÚ½ÄÀ¸·Î ¼³Á¤
+                cube.transform.parent = this.transform; // ìƒì„±ëœ íë¸Œë¥¼ GridGenerator ì˜¤ë¸Œì íŠ¸ì˜ ìì‹ìœ¼ë¡œ ì„¤ì •
 
-                // ºí·Ï ÀÌ¸§ ¼³Á¤
+                // ë¸”ë¡ ì´ë¦„ ì„¤ì •
                 cube.name = $"{j - cols / 2}_{i - rows / 2}";
 
-                // MeshRenderer¸¦ °¡Á®¿Í¼­ »ö»ó ¼³Á¤
+                // MeshRendererë¥¼ ê°€ì ¸ì™€ì„œ ìƒ‰ìƒ ì„¤ì •
                 MeshRenderer renderer = cube.GetComponent<MeshRenderer>();
                 if (renderer != null)
                 {
-                    // »ö»óÀ» ¹ø°¥¾Æ °¡¸ç Àû¿ë
+                    // ìƒ‰ìƒì„ ë²ˆê°ˆì•„ ê°€ë©° ì ìš©
                     renderer.material.color = (i + j) % 2 == 0 ? colorOne : colorTwo;
                 }
             }

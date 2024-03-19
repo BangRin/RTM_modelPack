@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+ï»¿using System.Collections.Generic;
 using UnityEngine;
 
 public class LineGridDrawar : MonoBehaviour
@@ -6,10 +6,10 @@ public class LineGridDrawar : MonoBehaviour
     public LineRenderer lr;
     public float sr, sc;
 
-    public GameObject cubePrefab; // Inspector¿¡¼­ ÇÒ´ç
-    public int rows = 5; // È¦¼ö
-    public int cols = 5; // È¦¼ö
-    public float cubeSize = 1.0f; // Å¥ºêÀÇ Å©±â
+    public GameObject cubePrefab; // Inspectorì—ì„œ í• ë‹¹
+    public int rows = 5; // í™€ìˆ˜
+    public int cols = 5; // í™€ìˆ˜
+    public float cubeSize = 1.0f; // íë¸Œì˜ í¬ê¸°
 
     void Start()
     {
