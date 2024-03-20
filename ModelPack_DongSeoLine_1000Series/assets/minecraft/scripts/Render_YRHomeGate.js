@@ -4,7 +4,8 @@ importPackage(Packages.jp.ngt.rtm.render);
 importPackage(Packages.jp.ngt.rtm);
 importPackage(Packages.jp.ngt.ngtlib.math);
 importPackage(Packages.jp.ngt.rtm.entity.train);
-importPackage(Packages.net.minecraft.util);
+importPackage(Packages.net.minecraft.util); //1.7.10-AxisAlignedBB
+importPackage(Packages.net.minecraft.util.math); //1.12.2-AxisAlignedBB
 importPackage(Packages.jp.ngt.ngtlib.util);
 importPackage(Packages.jp.ngt.ngtlib.io);
 importPackage(Packages.jp.ngt.rtm.entity.train.parts);
@@ -64,21 +65,37 @@ function render(entity, pass, par3) {
     //直接検知
     var yaw = renderer.getYaw(entity);
     var flag = moveFlip ? -1 : 1;
-    var offset = VecHelper.rotateAroundY(0, 0, 0, yaw);
+    var vector = new Vec3(0, 0, 0).rotateAroundY(yaw);
+    var offset = [vector.getX(), vector.getY(), vector.getZ()];
     var pos = getPosTileEntity(entity);
     var entityId = pos.join(":");
     var doorMovement = doorMoveDistance / (doorMoveTime * 20);
     var doorMove = doorMoveData[entityId];
+
     if (doorMoveData[entityId] === undefined) doorMove = 0;
+    if (doorMove < 0) doorMove = 0;
+    if (doorMove > 1) doorMove = 1;
     var shouldUpdate = updateTick(entity, pass);
-    var searchAABB = AxisAlignedBB.func_72330_a(
-        pos[0] - 1.5 + offset[0],
-        pos[1] - 1,
-        pos[2] - 1.5 + offset[2],
-        pos[0] + 1.5 + offset[0],
-        pos[1] + 1,
-        pos[2] + 1.5 + offset[2]
-    );
+    if (RTMCore.VERSION.indexOf("1.7.10") >= 0) {
+        var searchAABB = AxisAlignedBB.func_72330_a(
+            pos[0] - 3.0 + offset[0],
+            pos[1] - 3,
+            pos[2] - 3.0 + offset[2],
+            pos[0] + 3.0 + offset[0],
+            pos[1] + 1,
+            pos[2] + 3.0 + offset[2]
+        );
+    } else {
+        var searchAABB = new AxisAlignedBB(
+            pos[0] - 3.0 + offset[0],
+            pos[1] - 3,
+            pos[2] - 3.0 + offset[2],
+            pos[0] + 3.0 + offset[0],
+            pos[1] + 1,
+            pos[2] + 3.0 + offset[2]
+        );
+    }
+
     var world = entity.func_145831_w();
     var entityList1 = world.func_72872_a(EntityTrainBase.class, searchAABB); //List型
     var entityList2 = world.func_72872_a(EntityBogie.class, searchAABB); //List型

@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class RailLine : MonoBehaviour
 {
@@ -22,7 +24,6 @@ public class RailLine : MonoBehaviour
     private Vector3 screenSpace;
     private Vector3 offset;
 
-    private bool isSphereFixed = false;
     public float fixedSphereTValue;
 
     public void SetRailLine(Vector3[] positions)
@@ -48,47 +49,27 @@ public class RailLine : MonoBehaviour
     {
         float fractionalPart = value % 1; // 소수부 추출
                                           // 소수부가 0.5에 가까운지 또는 0에 가까운지 확인
-        return Mathf.Abs(fractionalPart - 0.5f) < 0.1f || Mathf.Abs(fractionalPart) < 0.1f;
+        return Mathf.Abs(fractionalPart - 0.5f) < 0.09f || Mathf.Abs(fractionalPart) < 0.09f;
     }
+
 
     private void Start()
     {
+        Debug.Log(Vector3.Distance(transforms[0].position, transforms[1].position));
+
         DrawHelpers();
-
-        for (int i = 0; i < points.Count; i++)
-        {
-            if (IsCloseToHalfOrZero(points[i].x) && IsCloseToHalfOrZero(points[i].z))
-            {
-                fixedSphereTValue = (float)(i + 1) / points.Count;
-                Debug.Log(fixedSphereTValue);
-                
-
-                var obj = Instantiate(testBall, transform);
-                obj.transform.position = points[i];
-            }
-        }
     }
 
     void Update()
     {
-        //if(Input.GetKey(KeyCode.LeftShift))
-        //{
-        //    Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //    RaycastHit hit;
-        //    if (Physics.Raycast(ray, out hit))
-        //    {
-        //        for (int i = 0; i < points.Count; i++)
-        //        {
-        //            if (IsCloseToHalfOrZero(points[i].x) && IsCloseToHalfOrZero(points[i].z))
-        //            {
-        //                fixedSphereTValue =  (i + 1) / points.Count;
-
-        //                var obj = Instantiate(testBall, transform);
-        //                obj.transform.position = points[i];
-        //            }
-        //        }
-        //    }
-        //}
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            if (Physics.Raycast(ray, out hit))
+            {
+            }
+        }
 
         if (Input.GetMouseButtonDown(0))
         {

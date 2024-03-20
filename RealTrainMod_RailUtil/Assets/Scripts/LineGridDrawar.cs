@@ -7,8 +7,8 @@ public class LineGridDrawar : MonoBehaviour
     public float sr, sc;
 
     public GameObject cubePrefab; // Inspector에서 할당
-    public int rows = 5; // 홀수
-    public int cols = 5; // 홀수
+    public int rows = 5; 
+    public int cols = 5; 
     public float cubeSize = 1.0f; // 큐브의 크기
 
     void Start()
@@ -20,7 +20,7 @@ public class LineGridDrawar : MonoBehaviour
 
     void initLineRenderer(LineRenderer lr)
     {
-        lr.startWidth = lr.endWidth = 0.05f;
+        lr.startWidth = lr.endWidth = 0.01f;
         lr.material.color = Color.yellow;
     }
 

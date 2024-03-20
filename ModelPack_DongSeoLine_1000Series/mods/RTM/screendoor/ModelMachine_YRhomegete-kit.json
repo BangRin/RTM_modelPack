@@ -10,6 +10,6 @@
     "smoothing": true,
     "doCulling": true,
     "accuracy": "LOW",
-    "renderAABB": [ -13.0, 0.0, -13.0, 13.0, 13.0, 13.0 ],
+    "renderAABB": [ -15.0, -2.0, -15.0, 15.0, 3.0, 15.0 ],
     "tags": "home door"
 }
