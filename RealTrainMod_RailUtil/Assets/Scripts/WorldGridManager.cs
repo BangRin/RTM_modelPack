@@ -11,19 +11,25 @@ public class WorldGridManager : MonoBehaviour
 
     private Dictionary<Vector2, LineRenderer> subGrids = new Dictionary<Vector2, LineRenderer>();
     private Vector3 lastCamPosition;
+    private float lastFov;
 
     void Start()
     {
         GenerateSubGrids();
+        UpdateVisibleSubGrids();
         lastCamPosition = Camera.main.transform.position;
+        lastFov = Camera.main.fieldOfView;
+
     }
 
     void Update()
     {
-        if (Vector3.Distance(Camera.main.transform.position, lastCamPosition) > 1.0f)
+        if (Vector3.Distance(Camera.main.transform.position, lastCamPosition) > 1.0f 
+            || Camera.main.fieldOfView != lastFov)
         {
             UpdateVisibleSubGrids();
             lastCamPosition = Camera.main.transform.position;
+            lastFov = Camera.main.fieldOfView;
         }
     }
 
