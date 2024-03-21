@@ -62,22 +62,19 @@ public class RailLine : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(ray, out hit))
-            {
-            }
-        }
+        if (RailCreateManager.Instance.railCreateMode.Equals(false)) return;
 
         if (Input.GetMouseButtonDown(0))
         {
             RaycastHit clickhit;
             Ray clickray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+
             if (Physics.Raycast(clickray, out clickhit))
             {
+                Debug.Log(clickhit.collider.gameObject.name);
+                Debug.Log(clickhit.point);
+
                 for (int i = 0; i < transforms.Length; i++)
                 {
                     if (clickhit.transform == transforms[i])
@@ -90,7 +87,6 @@ public class RailLine : MonoBehaviour
                 }
             }
         }
-
         if (Input.GetMouseButtonUp(0))
         {
             if (selectedTransform != null)

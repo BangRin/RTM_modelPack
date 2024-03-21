@@ -18,11 +18,6 @@ public class GridDrawar : MonoBehaviour
 
     void GenerateGrid()
     {
-        if (rows % 2 == 0 || cols % 2 == 0)
-        {
-            Debug.LogError("Rows and Cols must be odd numbers.");
-            return;
-        }
 
         // 그리드의 중앙을 (0, 0, 0)으로 설정
         int midRow = rows / 2;

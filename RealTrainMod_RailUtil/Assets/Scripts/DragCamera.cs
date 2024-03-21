@@ -2,37 +2,40 @@ using UnityEngine;
 
 public class DragCamera : MonoBehaviour
 {
-    public float dragSpeed = 1;
-    public Vector3 dragOrigin;
+    private Vector3 dragOrigin;
+    private bool isDragging = false;
+    public float zoomSpeed = 4f; // 마우스 휠 줌 속도 조절
+    public float minFOV = 15f; // 최소 FOV 값
+    public float maxFOV = 130f; // 최대 FOV 값
 
     void Update()
     {
-        // 마우스 왼쪽 버튼을 누르면
+        if (RailCreateManager.Instance.railCreateMode.Equals(true)) return;
+        // 마우스 휠 입력으로 FOV 조절
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        Camera.main.fieldOfView -= scroll * zoomSpeed;
+        Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView, minFOV, maxFOV);
+
+        // 마우스 드래그로 카메라 이동 시작
         if (Input.GetMouseButtonDown(0))
         {
-            dragOrigin = Input.mousePosition; // 드래그 시작 위치 저장
-            return;
+            isDragging = true;
+            dragOrigin = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
         }
 
-        // 마우스 왼쪽 버튼을 누른 채로 이동 중이면
-        if (!Input.GetMouseButton(0)) return;
+        // 마우스 버튼을 떼면 드래그 중지
+        if (Input.GetMouseButtonUp(0))
+        {
+            isDragging = false;
+        }
 
-        // 현재 마우스 위치와 드래그 시작 위치의 차이를 계산하여 이동량 결정
-        Vector3 difference = Input.mousePosition - dragOrigin;
+        // 드래그 중 카메라 이동
+        if (isDragging)
+        {
+            Vector3 currentMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
+            Vector3 moveDirection = dragOrigin - currentMousePosition;
+            transform.position += moveDirection;
+        }
 
-        // 이동 방향 결정
-        Vector3 moveDirection = new Vector3(-difference.x, -difference.y, 0).normalized;
-
-        // 카메라 이동(이동 방향과 속도를 곱하여 이동량 결정)
-        Vector3 move = moveDirection * dragSpeed * Time.deltaTime;
-        transform.Translate(move, Space.World);
-
-        // Y축 위치 고정
-        Vector3 currentPosition = transform.position;
-        currentPosition.y = 10; // Y축을 0으로 설정
-        transform.position = currentPosition;
-
-        // 현재 마우스 위치를 드래그 시작 위치로 업데이트
-        dragOrigin = Input.mousePosition;
     }
 }
