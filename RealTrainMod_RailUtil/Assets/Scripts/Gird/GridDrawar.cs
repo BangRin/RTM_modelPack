@@ -3,8 +3,8 @@
 public class GridDrawar : MonoBehaviour
 {
     public GameObject cubePrefab; // Inspector에서 할당
-    public int rows = 5; // 홀수
-    public int cols = 5; // 홀수
+    public int rows;
+    public int cols;
     public float cubeSize = 1.0f; // 큐브의 크기
 
     // 사용할 색상 정의
