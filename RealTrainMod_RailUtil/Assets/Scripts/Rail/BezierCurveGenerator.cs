@@ -14,30 +14,30 @@ public class BezierCurveGenerator : Singleton<BezierCurveGenerator>
     {
         if (selectRail == null || splitCount < 1) return;
 
-        Vector3[] controlPoints = selectRail.GetControlPoints(); // ¿ø·¡ RailLineÀÇ Á¦¾îÁ¡ °¡Á®¿À±â
+        Vector3[] controlPoints = selectRail.GetControlPoints(); 
 
         float tIncrement = 1f / splitCount;
         float t = 0;
 
-        // ÀÌÀü ¼¼±×¸ÕÆ®ÀÇ ³¡Á¡À» »õ ¼¼±×¸ÕÆ®ÀÇ ½ÃÀÛÁ¡À¸·Î »ç¿ë
+        // ì´ì „ ì„¸ê·¸ë¨¼íŠ¸ì˜ ëì ì„ ìƒˆ ì„¸ê·¸ë¨¼íŠ¸ì˜ ì‹œì‘ì ìœ¼ë¡œ ì‚¬ìš©
         Vector3[] firstHalf, secondHalf;
 
         for (int i = 0; i < splitCount; i++)
         {
-            t = tIncrement * (i + 1); // °¢ ¼¼±×¸ÕÆ®ÀÇ t °è»ê
+            t = tIncrement * (i + 1); // ê° ì„¸ê·¸ë¨¼íŠ¸ì˜ t ê³„ì‚°
             SplitBezierCurve(t, controlPoints[0], controlPoints[1], controlPoints[2], controlPoints[3], out firstHalf, out secondHalf);
 
-            // Ã¹ ¹øÂ° ¹İÀ» ±â¹İÀ¸·Î »õ RailLine »ı¼º
+            // ì²« ë²ˆì§¸ ë°˜ì„ ê¸°ë°˜ìœ¼ë¡œ ìƒˆ RailLine ìƒì„±
             RailLine newRail = Instantiate(railPrefab);
-            newRail.SetRailLine(firstHalf); // »õ·Î¿î ¼¼±×¸ÕÆ®ÀÇ Á¦¾îÁ¡ ¼³Á¤
-            rails.Add(newRail); // ¸®½ºÆ®¿¡ Ãß°¡
+            newRail.SetRailLine(firstHalf); // ìƒˆë¡œìš´ ì„¸ê·¸ë¨¼íŠ¸ì˜ ì œì–´ì  ì„¤ì •
+            rails.Add(newRail); // ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
 
-            // ´ÙÀ½ ¹İº¹À» À§ÇØ secondHalfÀÇ Á¡µéÀ» controlPoints·Î ¼³Á¤
+            // ë‹¤ìŒ ë°˜ë³µì„ ìœ„í•´ secondHalfì˜ ì ë“¤ì„ controlPointsë¡œ ì„¤ì •
             controlPoints = secondHalf;
         }
     }
 
-    // De Casteljau ¾Ë°í¸®ÁòÀ» »ç¿ëÇÏ¿© º£Áö¾î °î¼±ÀÇ Æ¯Á¤ t °ª¿¡¼­ÀÇ Á¡À» °è»êÇÕ´Ï´Ù.
+    // De Casteljau ì•Œê³ ë¦¬ì¦˜
     public static Vector3 DeCasteljau(float t, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3)
     {
         Vector3 a = Vector3.Lerp(p0, p1, t);
@@ -45,10 +45,10 @@ public class BezierCurveGenerator : Singleton<BezierCurveGenerator>
         Vector3 c = Vector3.Lerp(p2, p3, t);
         Vector3 d = Vector3.Lerp(a, b, t);
         Vector3 e = Vector3.Lerp(b, c, t);
-        return Vector3.Lerp(d, e, t); // °î¼± À§ÀÇ Á¡
+        return Vector3.Lerp(d, e, t); // ê³¡ì„  ìœ„ì˜ ì 
     }
 
-    // º£Áö¾î °î¼±À» ºĞÇÒÇÏ¿© °¢ ºÎºĞÀÇ Á¦¾îÁ¡À» °è»êÇÕ´Ï´Ù.
+    // ë² ì§€ì–´ ê³¡ì„ ì„ ë¶„í• í•˜ì—¬ ê° ë¶€ë¶„ì˜ ì œì–´ì  ê³„ì‚°
     public static void SplitBezierCurve(float t, Vector3 p0, Vector3 p1, Vector3 p2, Vector3 p3, out Vector3[] firstHalf, out Vector3[] secondHalf)
     {
         Vector3 a = Vector3.Lerp(p0, p1, t);
