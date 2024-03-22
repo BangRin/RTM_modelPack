@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class RailCreateManager : Singleton<RailCreateManager>
 {
@@ -14,6 +15,13 @@ public class RailCreateManager : Singleton<RailCreateManager>
     public TMP_InputField zInput;
 
     public GameObject currentPointCube;
+    public Transform mousePosCube;
+
+    float moveUnit = 1f; // 이동 단위
+    float minX = -1500f; // X 좌표 최소값
+    float maxX = 1500f; // X 좌표 최대값
+    float minZ = -1500f; // Z 좌표 최소값
+    float maxZ = 1500f; // Z 좌표 최대값
 
     public void MoveCoord()
     {
@@ -51,6 +59,31 @@ public class RailCreateManager : Singleton<RailCreateManager>
         {
             railCreateMode = !railCreateMode;
             currentPointCube.SetActive(railCreateMode);
+        }
+
+        if(railCreateMode)
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+
+            }
+            Vector3 currentMousePosition = Camera.main.ScreenToWorldPoint(
+                new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
+
+            int x, z;
+
+            x = (int)currentMousePosition.x;
+            z = (int)currentMousePosition.z;
+
+            currentMousePosition.x = x;
+            currentMousePosition.z = z;
+
+            // 음수인 경우 0.5를 더하고, 양수인 경우 0.5를 빼줌
+            currentMousePosition.x = ParseInput(x.ToString() + ".5");
+            currentMousePosition.z = ParseInput(z.ToString() + ".5");
+
+            mousePosCube.position = new Vector3(currentMousePosition.x, mousePosCube.position.y, currentMousePosition.z);
+            //Debug.Log(currentMousePosition);
         }
     }
 }
