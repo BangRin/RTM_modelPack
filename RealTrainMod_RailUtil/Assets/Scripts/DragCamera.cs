@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class DragCamera : MonoBehaviour
@@ -7,6 +8,7 @@ public class DragCamera : MonoBehaviour
     public float zoomSpeed = 4f; // 마우스 휠 줌 속도 조절
     public float minFOV = 15f; // 최소 FOV 값
     public float maxFOV = 130f; // 최대 FOV 값
+    public float moveUnit = 0.5f; // 이동 단위
 
     void Update()
     {
@@ -34,6 +36,12 @@ public class DragCamera : MonoBehaviour
         {
             Vector3 currentMousePosition = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
             Vector3 moveDirection = dragOrigin - currentMousePosition;
+
+            // 좌표를 0.5 단위로 이동하도록 제한
+            moveDirection.x = Mathf.Round(moveDirection.x / moveUnit) * moveUnit;
+            moveDirection.y = Mathf.Round(moveDirection.y / moveUnit) * moveUnit;
+            moveDirection.z = Mathf.Round(moveDirection.z / moveUnit) * moveUnit;
+
             transform.position += moveDirection;
         }
 
