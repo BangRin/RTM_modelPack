@@ -1974,6 +1974,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97477464824caf147b34ca7c9df23771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 704635980}
   sprites:
   - {fileID: 21300000, guid: cb375d049b4fe334fb6be197fc6595ac, type: 3}
   - {fileID: 21300000, guid: 71487a0af7d837a4f8d3a6f43518d1b6, type: 3}
@@ -1992,7 +1993,7 @@ MonoBehaviour:
   - {fileID: 307280213}
   - {fileID: 2044087128}
   - {fileID: 153231749}
-  angle: {fileID: 0}
+  angle: 0
 --- !u!1 &779271094
 GameObject:
   m_ObjectHideFlags: 0
