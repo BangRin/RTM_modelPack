@@ -4,14 +4,6 @@ using UnityEngine;
 
 public class Marker : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
+    public Sprite[] sprites = new Sprite[8];
+    public Transform[] anchor = new Transform[8];
 }

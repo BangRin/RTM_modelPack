@@ -28,7 +28,7 @@ public class RailCreateManager : Singleton<RailCreateManager>
         Vector3 vec = ConvertMinecraftToUnityCoords(x, 10, z);
 
         Camera.main.transform.position = vec;
-        mousePosCube.position = new Vector3(vec.x, mousePosCube.position.y, vec.z);
+        //mousePosCube.position = new Vector3(vec.x, mousePosCube.position.y, vec.z);
         myPosition.text = $"[{vec.x}, 0, {-vec.z}]";
         LineGrid.Instance.UpdateOffsetGrid((int)vec.x, (int)vec.z);
     }
@@ -58,31 +58,38 @@ public class RailCreateManager : Singleton<RailCreateManager>
             railCreateMode = !railCreateMode;
         }
 
-        if(railCreateMode)
-        {
-            if(Input.GetMouseButtonDown(0))
-            {
-
-            }
-            Vector3 currentMousePosition = Camera.main.ScreenToWorldPoint(
+        Vector3 currentMousePosition = Camera.main.ScreenToWorldPoint(
                 new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
 
-            int x, z;
+        bool isZero = currentMousePosition.z < 0f && currentMousePosition.z > -1f;
 
-            x = (int)currentMousePosition.x;
-            z = (int)currentMousePosition.z;
+        int x, z;
 
-            currentMousePosition.x = x;
-            currentMousePosition.z = z;
+        x = (int)currentMousePosition.x;
+        z = (int)currentMousePosition.z;
 
-            currentMousePosition.x = ParseInput(x.ToString() + ".5");
-            currentMousePosition.z = ParseInput(z.ToString() + ".5");
+        currentMousePosition.x = x;
+        currentMousePosition.z = z;
 
-            mousePosCube.position = new Vector3(currentMousePosition.x, mousePosCube.position.y, currentMousePosition.z);
+        currentMousePosition.x = ParseInput(x.ToString() + ".5");
+        currentMousePosition.z = isZero ? -ParseInput(z.ToString() + ".5") : ParseInput(z.ToString() + ".5");
 
-            myPosition.text = $"[{currentMousePosition.x}, 0, {-currentMousePosition.z}]";
+        mousePosCube.position = new Vector3(currentMousePosition.x, mousePosCube.position.y, currentMousePosition.z);
 
-            //Debug.Log(currentMousePosition);
+        myPosition.text = $"[{currentMousePosition.x}, 0, {-currentMousePosition.z}]";
+
+        if (railCreateMode)
+        {
+            if(!Input.GetMouseButtonDown(0))
+            {
+                
+            }
+
+            
+        }
+        else
+        {
+
         }
     }
 }

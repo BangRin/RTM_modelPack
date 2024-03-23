@@ -49,11 +49,11 @@ public class DragCamera : MonoBehaviour
 
             LineGrid.Instance.UpdateOffsetGrid((int)newX, (int)newZ);
 
-            RailCreateManager.Instance.mousePosCube.transform.position = 
-                new Vector3(newX, RailCreateManager.Instance.mousePosCube.transform.position.y, newZ);
+            //RailCreateManager.Instance.mousePosCube.transform.position = 
+            //    new Vector3(newX, RailCreateManager.Instance.mousePosCube.transform.position.y, newZ);
 
-            RailCreateManager.Instance.myPosition.text = 
-                $"[{newX}, 0, {-newZ}]";
+            //RailCreateManager.Instance.myPosition.text = 
+            //    $"[{newX}, 0, {-newZ}]";
         }
     }
 }
