@@ -12,21 +12,31 @@ public class DragCamera : MonoBehaviour
 
     void Update()
     {
-        if (RailCreateManager.Instance.railCreateMode.Equals(true)) return;
+        //if (RailCreateManager.Instance.railCreateMode.Equals(true)) return;
         // 마우스 휠 입력으로 FOV 조절
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         Camera.main.fieldOfView -= scroll * zoomSpeed;
         Camera.main.fieldOfView = Mathf.Clamp(Camera.main.fieldOfView, minFOV, maxFOV);
 
-        // 마우스 드래그로 카메라 이동 시작
-        if (Input.GetMouseButtonDown(0))
+
+        if(RailCreateManager.Instance.railCreateMode.Equals(true))
         {
-            isDragging = true;
-            dragOrigin = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
+            if(Input.GetMouseButtonDown(1))
+            {
+                isDragging = true;
+                dragOrigin = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
+            }
+        }
+        else
+        {
+            if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1))
+            {
+                isDragging = true;
+                dragOrigin = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
+            }
         }
 
-        // 마우스 버튼을 떼면 드래그 중지
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || Input.GetMouseButtonUp(1))
         {
             isDragging = false;
         }

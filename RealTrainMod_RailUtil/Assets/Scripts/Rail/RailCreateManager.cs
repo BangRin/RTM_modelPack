@@ -15,7 +15,7 @@ public class RailCreateManager : Singleton<RailCreateManager>
     public TMP_InputField zInput;
 
     public TextMeshProUGUI myPosition;
-
+    public Marker testMarker;
     public Transform mousePosCube;
 
     float moveUnit = 1f; // 이동 단위
@@ -50,6 +50,8 @@ public class RailCreateManager : Singleton<RailCreateManager>
         
     }
 
+
+    Vector3 currentMousePosition;
     // Update is called once per frame
     void Update()
     {
@@ -58,38 +60,57 @@ public class RailCreateManager : Singleton<RailCreateManager>
             railCreateMode = !railCreateMode;
         }
 
-        Vector3 currentMousePosition = Camera.main.ScreenToWorldPoint(
-                new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
-
-        bool isZero = currentMousePosition.z < 0f && currentMousePosition.z > -1f;
-
-        int x, z;
-
-        x = (int)currentMousePosition.x;
-        z = (int)currentMousePosition.z;
-
-        currentMousePosition.x = x;
-        currentMousePosition.z = z;
-
-        currentMousePosition.x = ParseInput(x.ToString() + ".5");
-        currentMousePosition.z = isZero ? -ParseInput(z.ToString() + ".5") : ParseInput(z.ToString() + ".5");
-
-        mousePosCube.position = new Vector3(currentMousePosition.x, mousePosCube.position.y, currentMousePosition.z);
-
-        myPosition.text = $"[{currentMousePosition.x}, 0, {-currentMousePosition.z}]";
-
         if (railCreateMode)
         {
-            if(!Input.GetMouseButtonDown(0))
+            if(Input.GetMouseButtonDown(0))
             {
-                
+                currentMousePosition = Camera.main.ScreenToWorldPoint(
+                new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
             }
+            else if (Input.GetMouseButton(0))
+            {
+                TargetPosUpdate(mousePosCube, currentMousePosition);
 
-            
+                testMarker.DirectionCalc(mousePosCube.position, new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
+            }
+            else
+            {
+                currentMousePosition = Camera.main.ScreenToWorldPoint(
+                new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
+
+                TargetPosUpdate(mousePosCube, currentMousePosition);
+            }
         }
         else
         {
+            currentMousePosition = Camera.main.ScreenToWorldPoint(
+                new Vector3(Input.mousePosition.x, Input.mousePosition.y, Camera.main.transform.position.y));
 
+            TargetPosUpdate(mousePosCube, currentMousePosition);
         }
+    }
+
+    void TargetPosUpdate(Transform target, Vector3 currentPos)
+    {
+        //Debug.Log(currentPos);
+
+        bool isZeroZ = currentPos.z < 0f && currentPos.z > -1f;
+        bool isZeroX = currentPos.x < 0f && currentPos.x > -1f;
+
+        int x, z;
+
+        x = (int)currentPos.x;
+        z = (int)currentPos.z;
+
+        currentPos.x = x;
+        currentPos.z = z;
+
+        currentPos.x = isZeroX ? -ParseInput(x.ToString() + ".5") : ParseInput(x.ToString() + ".5");
+        currentPos.z = isZeroZ ? -ParseInput(z.ToString() + ".5") : ParseInput(z.ToString() + ".5");
+
+        target.position = new Vector3(currentPos.x, target.position.y, currentPos.z);
+
+        myPosition.text = $"[{currentPos.x}, 0, {-currentPos.z}]";
+
     }
 }
