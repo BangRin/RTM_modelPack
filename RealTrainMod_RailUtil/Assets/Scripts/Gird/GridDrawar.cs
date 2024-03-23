@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class GridDrawar : MonoBehaviour
 {
@@ -13,7 +14,7 @@ public class GridDrawar : MonoBehaviour
 
     void Start()
     {
-        GenerateGrid();
+        //GenerateGrid();
     }
 
     void GenerateGrid()

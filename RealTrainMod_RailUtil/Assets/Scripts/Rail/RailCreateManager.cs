@@ -14,14 +14,11 @@ public class RailCreateManager : Singleton<RailCreateManager>
     public TMP_InputField xInput;
     public TMP_InputField zInput;
 
-    public GameObject currentPointCube;
+    public TextMeshProUGUI myPosition;
+
     public Transform mousePosCube;
 
     float moveUnit = 1f; // 이동 단위
-    float minX = -1500f; // X 좌표 최소값
-    float maxX = 1500f; // X 좌표 최대값
-    float minZ = -1500f; // Z 좌표 최소값
-    float maxZ = 1500f; // Z 좌표 최대값
 
     public void MoveCoord()
     {
@@ -31,6 +28,9 @@ public class RailCreateManager : Singleton<RailCreateManager>
         Vector3 vec = ConvertMinecraftToUnityCoords(x, 10, z);
 
         Camera.main.transform.position = vec;
+        mousePosCube.position = new Vector3(vec.x, mousePosCube.position.y, vec.z);
+        myPosition.text = $"[{vec.x}, 0, {-vec.z}]";
+        LineGrid.Instance.UpdateOffsetGrid((int)vec.x, (int)vec.z);
     }
 
     private float ParseInput(string input)
@@ -44,8 +44,6 @@ public class RailCreateManager : Singleton<RailCreateManager>
         return new Vector3(x, y, -z);
     }
 
-    
-
     // Start is called before the first frame update
     void Start()
     {
@@ -58,7 +56,6 @@ public class RailCreateManager : Singleton<RailCreateManager>
         if(Input.GetKeyDown(KeyCode.F3))
         {
             railCreateMode = !railCreateMode;
-            currentPointCube.SetActive(railCreateMode);
         }
 
         if(railCreateMode)
@@ -78,11 +75,13 @@ public class RailCreateManager : Singleton<RailCreateManager>
             currentMousePosition.x = x;
             currentMousePosition.z = z;
 
-            // 음수인 경우 0.5를 더하고, 양수인 경우 0.5를 빼줌
             currentMousePosition.x = ParseInput(x.ToString() + ".5");
             currentMousePosition.z = ParseInput(z.ToString() + ".5");
 
             mousePosCube.position = new Vector3(currentMousePosition.x, mousePosCube.position.y, currentMousePosition.z);
+
+            myPosition.text = $"[{currentMousePosition.x}, 0, {-currentMousePosition.z}]";
+
             //Debug.Log(currentMousePosition);
         }
     }

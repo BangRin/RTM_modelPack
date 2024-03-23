@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class DragCamera : MonoBehaviour
 {
@@ -8,10 +9,6 @@ public class DragCamera : MonoBehaviour
     public float minFOV = 15f; // 최소 FOV 값
     public float maxFOV = 130f; // 최대 FOV 값
     public float moveUnit = 0.5f; // 이동 단위
-    public float minX = -1500f; // X 좌표 최소값
-    public float maxX = 1500f; // X 좌표 최대값
-    public float minZ = -1500f; // Z 좌표 최소값
-    public float maxZ = 1500f; // Z 좌표 최대값
 
     void Update()
     {
@@ -45,12 +42,18 @@ public class DragCamera : MonoBehaviour
             moveDirection.y = Mathf.Round(moveDirection.y / moveUnit) * moveUnit;
             moveDirection.z = Mathf.Round(moveDirection.z / moveUnit) * moveUnit;
 
-            // X 좌표 제한
-            float newX = Mathf.Clamp(transform.position.x + moveDirection.x, minX, maxX);
-            // Z 좌표 제한
-            float newZ = Mathf.Clamp(transform.position.z + moveDirection.z, minZ, maxZ);
+            float newX = transform.position.x + moveDirection.x;
+            float newZ = transform.position.z + moveDirection.z;
 
             transform.position = new Vector3(newX, transform.position.y, newZ);
+
+            LineGrid.Instance.UpdateOffsetGrid((int)newX, (int)newZ);
+
+            RailCreateManager.Instance.mousePosCube.transform.position = 
+                new Vector3(newX, RailCreateManager.Instance.mousePosCube.transform.position.y, newZ);
+
+            RailCreateManager.Instance.myPosition.text = 
+                $"[{newX}, 0, {-newZ}]";
         }
     }
 }
