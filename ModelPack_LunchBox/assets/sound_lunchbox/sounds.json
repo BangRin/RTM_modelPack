@@ -1,0 +1,34 @@
+{
+
+	"train.dongseo1000_doorclose": {
+		"category": "neutral",
+		"sounds": [
+			"train/dongseo1000_doorclose"
+		]
+	},
+	"train.dongseo1000_dooropen": {
+		"category": "neutral",
+		"sounds": [
+			"train/dongseo1000_dooropen"
+		]
+	},
+	"train.rtm_mcta_none": {
+		"category": "neutral",
+		"sounds": [
+			"train/rtm_mcta_none"
+		]
+	},
+	"train.dongseo3000_doorclose": {
+		"category": "neutral",
+		"sounds": [
+			"train/dongseo3000_doorclose"
+		]
+	},
+	"train.dongseo3000_dooropen": {
+		"category": "neutral",
+		"sounds": [
+			"train/dongseo3000_dooropen"
+		]
+	}
+}
+  
