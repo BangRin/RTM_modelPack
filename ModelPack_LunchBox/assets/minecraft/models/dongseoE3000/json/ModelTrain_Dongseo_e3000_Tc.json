@@ -4,30 +4,33 @@
 	"tags": "e3000",
 
 	"trainModel2": {
-		"modelFile": "ds_e3000.mqo",
+		"modelFile": "dongseoE3000/ds_e3000.mqo",
 		"textures": [
-			[ "A3000", "textures/e3000/e3000-main_original.png", "Light" ],
-			[ "mat1", "textures/e3000/e3000_Tc.png", "Light" ],
-			[ "mat2", "textures/e3000/e3000-under_Mc.png", "AlphaBlend" ],
-			[ "mat3", "textures/e3000/e3000-cab.png", "Light" ],
-			[ "mat4", "textures/e3000/cabwall.png", "AlphaBlend" ],
-			[ "lcd", "textures/e3000/lcd/temp.png", "Light" ],
-			[ "meter", "textures/e3000/meter.png", "Light" ]
+			[ "A3000", "textures/train/e3000/e3000_main.png", "Light" ],
+			[ "mat1", "textures/train/e3000/e3000_Tc.png", "Light" ],
+			[ "mat2", "textures/train/e3000/e3000-under_Mc.png", "AlphaBlend" ],
+			[ "mat3", "textures/train/e3000/e3000-cab.png", "Light" ],
+			[ "mat4", "textures/train/e3000/cabwall.png", "AlphaBlend" ],
+			[ "lcd", "textures/train/e3000/lcd/temp.png", "Light" ],
+			[ "meter", "textures/train/e3000/meter.png", "Light" ]
 		],
 		"rendererPath": "scripts/render_e3000_tc.js"
 	},
 
 	"bogieModel2": {
-		"modelFile": "bogie_ts-840_e3000.mqo",
+		"modelFile": "dongseoE3000/bogie_ts-840_e3000.mqo",
 		"textures": [ [ "default", "textures/Bogie_TS-840_e3000.png" ] ],
 		"rendererPath": "scripts/bogie_e3000.js"
 	},
 
+	"doCulling": true,
+	"renderLight": true,
 	"smoothing": true,
+	"notDisplayCab": true,
 
-	"buttonTexture": "textures/e3000/button_e3000_Tc.png",
+	"buttonTexture": "textures/train/e3000/button_e3000_Tc.png",
 
-	"rollsignTexture": "textures/e3000/rollsign_e3000.png",
+	"rollsignTexture": "textures/train/e3000/rollsign_e3000.png",
 	"rollsignNames": [
 		"Select_a_destination",
 		"Local_Shizuoka",
@@ -66,8 +69,8 @@
 		}
 	],
 
-	"sound_DoorOpen": "sound_mcta_mi:train.rtm_mctj_dooropen_mi",
-	"sound_DoorClose": "sound_mcta_mi:train.rtm_mctj_doorclose_mi",
+	"sound_DoorOpen": "sound_lunchbox:train.dongseo3000_dooropen",
+	"sound_DoorClose": "sound_lunchbox:train.dongseo3000_doorclose",
 	"sound_Horn": "train.rtm_wh_00l",
 	"soundScriptPath": "scripts/sound_e3000.js",
 

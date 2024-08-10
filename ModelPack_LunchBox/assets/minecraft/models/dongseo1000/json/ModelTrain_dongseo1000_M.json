@@ -6,7 +6,7 @@
 	"trainModel2": {
 		"modelFile": "dongseo1000/dongseo1000_M.mqo",
 		"textures": [
-			[ "mat1", "textures/train/dongseo1000/YHkit_b_M2.png", "Light" ],
+			[ "mat1", "textures/train/dongseo1000/M.png", "Light" ],
 			[ "mat2", "textures/train/dongseo1000/parts.png", "" ],
 			[ "mat3", "textures/train/dongseo1000/alpha.png", "AlphaBlend" ],
 			[ "mat4", "textures/train/dongseo1000/steker.png", "" ],

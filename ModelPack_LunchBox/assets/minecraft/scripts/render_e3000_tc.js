@@ -20,28 +20,34 @@ var dataMap;
 function init(par1, par2){
 	main = renderer.registerParts(
 		new Parts(
-			"body",
 			"body-in",
 			"in1",
 			"in2",
-			"body-cab_door",
-			"cab1",
-			"cab2",
-			"cab",
-			"cabwall",
 			"in3",
 			"in4",
-			"cooler",
-			"direction_screen",
 			"light",
-			"logo",
-			"obj1",
 			"obj2",
-			"obj3",
-			"shadow",
-			"under-Mc",
-			"under-Tc",
-			"wiper"));
+			"obj3"));
+
+	main_notLight = render.registerParts(
+		new Parts(
+		"body",
+		"body-cab_door",
+		"cab",
+		"cab1",
+		"cab2",
+		"cabwall",
+		"cooler",
+		"direction_screen",
+		"panta2",
+		"shadow",
+		"under-Mc",
+		"under-Tc",
+		"logo",
+		"obj1",
+		"wiper"
+	));
+
 	mc = renderer.registerParts(new Parts("c_ctrl"));
 	doorLB = renderer.registerParts(new Parts("door_LB"));
 	doorLF = renderer.registerParts(new Parts("door_LF"));
@@ -61,7 +67,6 @@ function render(entity, pass, par3) {
 	TCC = TrainControllerClientManager.getTCC(entity);
 	doorM = 0.59;
 	GL11.glPushMatrix();
-	main.render(renderer);
 
 	if(entity != null){
 		var notch = entity.getNotch();
@@ -70,13 +75,22 @@ function render(entity, pass, par3) {
 		var roMc = notch * -8;
 	}
 
+	
 
 	if (pass == 0) {
+		main.render(renderer);
+		main_notLight.render(renderer);
 		render_door(entity, doorM);
 		render_meter(entity);
 	}
 
+	if (pass == 1) {
+
+	}
+
 	if (pass > 1) {
+		main.render(renderer);
+		main_notLight.render(renderer);
 		render_door(entity, doorM);
 		render_meter(entity);
 	}
@@ -178,7 +192,7 @@ function RenderInnerLCD(entity, dataMap) {
 		GL11.glPushMatrix();
 		var selStationName = dataMap.getString("bitmapLCD_fileName");
 		if (selStationName == "") selStationName = "temp";
-		var textureRoute = new ResourceLocation("minecraft", "textures/A3000/lcd/" + selStationName + ".png");
+		var textureRoute = new ResourceLocation("minecraft", "textures/train/e3000/lcd/" + selStationName + ".png");
 		NGTUtilClient.bindTexture(textureRoute);
 		lcd.render(renderer);
 		GL11.glPopMatrix();

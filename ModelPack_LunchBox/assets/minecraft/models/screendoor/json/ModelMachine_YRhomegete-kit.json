@@ -3,7 +3,7 @@
     "model": {
         "modelFile": "screendoor/ModelMachine_YRhomegeteM.mqo",
         "textures": [ [ "mat1", "textures/screendoor/YRgate.png", "" ] ],
-        "rendererPath": "scripts/Render_YRHomeGate.js"
+        "rendererPath": "scripts/Render_HomeGate.js"
     },
     "buttonTexture": "textures/screendoor/button/button_tipeYM.png",
     "machineType": "Gate",
