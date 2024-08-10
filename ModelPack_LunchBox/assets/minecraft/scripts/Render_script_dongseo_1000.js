@@ -303,7 +303,7 @@ function RenderInnerLCD(entity, dataMap) {
 		GL11.glPushMatrix();
 		var selStationName = dataMap.getString("bitmapLCD_fileName");
 		if (selStationName == "") selStationName = "black";
-		var textureRoute = new ResourceLocation("minecraft", "textures/train/YHkit_b/lcd/" + selStationName + ".png");
+		var textureRoute = new ResourceLocation("minecraft", "textures/train/dongseo1000/lcd/" + selStationName + ".png");
 		NGTUtilClient.bindTexture(textureRoute);
 		lcd.render(renderer);
 		GL11.glPopMatrix();

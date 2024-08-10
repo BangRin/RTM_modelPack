@@ -20,39 +20,37 @@ var dataMap;
 function init(par1, par2){
 	main = renderer.registerParts(
 		new Parts(
+			"body",
+			"window",
 			"body-in",
 			"in1",
 			"in2",
+			"body-cab_door",
+			"cab1",
+			"cab2",
+			"cab",
+			"cabwall",
 			"in3",
 			"in4",
-			"light",
+			"cooler",
+			"direction_screen",
+			"logo",
+			"obj1",
 			"obj2",
-			"obj3"));
-
-	main_notLight = render.registerParts(
-		new Parts(
-		"body",
-		"body-cab_door",
-		"cab",
-		"cab1",
-		"cab2",
-		"cabwall",
-		"cooler",
-		"direction_screen",
-		"panta2",
-		"shadow",
-		"under-Mc",
-		"under-Tc",
-		"logo",
-		"obj1",
-		"wiper"
-	));
-
+			"obj3",
+			"lightBase",
+			"shadow",
+			"under-Mc",
+			"under-Tc",
+			"wiper"));
 	mc = renderer.registerParts(new Parts("c_ctrl"));
 	doorLB = renderer.registerParts(new Parts("door_LB"));
 	doorLF = renderer.registerParts(new Parts("door_LF"));
 	doorRB = renderer.registerParts(new Parts("door_RB"));
 	doorRF = renderer.registerParts(new Parts("door_RF"));
+
+	lightF = renderer.registerParts(new Parts("lightF"));
+	lightB = renderer.registerParts(new Parts("lightB"));
 
 	meterPanel = renderer.registerParts(new Parts("meter_speed", "meter_brake"));
 	needleSpeed = renderer.registerParts(new Parts("needle_speed"));
@@ -75,23 +73,21 @@ function render(entity, pass, par3) {
 		var roMc = notch * -8;
 	}
 
-	
 
 	if (pass == 0) {
 		main.render(renderer);
-		main_notLight.render(renderer);
 		render_door(entity, doorM);
+		render_light(entity);
 		render_meter(entity);
 	}
 
 	if (pass == 1) {
-
 	}
 
 	if (pass > 1) {
 		main.render(renderer);
-		main_notLight.render(renderer);
 		render_door(entity, doorM);
+		render_light(entity);
 		render_meter(entity);
 	}
 
@@ -184,6 +180,39 @@ function render_door(entity, doorMove) {
 	GL11.glTranslatef(0, 0, doorR);
 	doorRF.render(renderer);
 	GL11.glPopMatrix();
+}
+
+function render_light(entity) {
+	//var lightMove = 0;
+
+	//try {
+	//	lightMove = (entity.seatRotation) / 45;
+	//} catch (e) { }
+
+	////NGTLog.debug(lightMove);
+
+	//if (lightMove < 0) {
+	//	GL11.glPushMatrix();
+	//	lightF.render(renderer);
+	//	GL11.glPopMatrix();
+	//} else {
+	//	GL11.glPushMatrix();
+	//	lightB.render(renderer);
+	//	GL11.glPopMatrix();
+	//}
+
+	if (entity != null) {
+		if (entity.isControlCar()) {
+			GL11.glPushMatrix();
+			lightF.render(renderer);
+			GL11.glPopMatrix();
+		}
+		else {
+			GL11.glPushMatrix();
+			lightB.render(renderer);
+			GL11.glPopMatrix();
+		}
+	}
 }
 
 function RenderInnerLCD(entity, dataMap) {

@@ -18,30 +18,25 @@ importPackage(Packages.jp.kaiz.atsassistmod.api);
 var dataMap;
 
 function init(par1, par2){
-
 	main = renderer.registerParts(
 		new Parts(
+			"body",
 			"body-in",
+			"window",
 			"in1",
 			"in2",
+			"cooler",
+			"direction_screen",
 			"light",
+			"logo",
+			"obj1",
 			"obj2",
-			"obj3"
-		));
-
-	main_notLight = render.registerParts(
-		new Parts(
-		"body",
-		"cooler",
-		"direction_screen",
-		"panta2",
-		"shadow",
-		"under-Mc",
-		"under-Tc",
-		"logo",
-		"obj1",
-		"wiper"
-	));
+			"obj3",
+			"panta2",
+			"shadow",
+			"under-Mc",
+			"under-Tc",
+			"wiper"));
 	doorLF = renderer.registerParts(new Parts("door_LF"));
 	doorLB = renderer.registerParts(new Parts("door_LB"));
 	doorRF = renderer.registerParts(new Parts("door_RF"));
@@ -123,7 +118,6 @@ function render(entity, pass, par3) {
 
 	if (pass == 0) {
 		main.render(renderer);
-		main_notLight.render(renderer);
 		render_panta(entity, 7.0, "W51");
 		render_door(entity, doorM);
 	}
@@ -133,7 +127,6 @@ function render(entity, pass, par3) {
 
 	if (pass > 1) {
 		main.render(renderer);
-		main_notLight.render(renderer);
 		render_panta(entity, 7.0, "W51");
 		render_door(entity, doorM);
 	}

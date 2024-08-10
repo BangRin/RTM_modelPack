@@ -12,7 +12,10 @@
 			[ "mat3", "textures/train/e3000/e3000-cab.png", "Light" ],
 			[ "mat4", "textures/train/e3000/cabwall.png", "AlphaBlend" ],
 			[ "lcd", "textures/train/e3000/lcd/temp.png", "Light" ],
-			[ "meter", "textures/train/e3000/meter.png", "Light" ]
+			[ "meter", "textures/train/e3000/meter.png", "Light" ],
+			[ "LightB", "textures/train/e3000/e3000lightB.png", "Light" ],
+			[ "LightF", "textures/train/e3000/e3000lightF.png", "Light" ],
+			[ "mat5", "textures/train/e3000/alpha.png", "AlphaBlend" ]
 		],
 		"rendererPath": "scripts/render_e3000_tc.js"
 	},
@@ -23,9 +26,8 @@
 		"rendererPath": "scripts/bogie_e3000.js"
 	},
 
-	"doCulling": true,
-	"renderLight": true,
 	"smoothing": true,
+	"renderLight": true,
 	"notDisplayCab": true,
 
 	"buttonTexture": "textures/train/e3000/button_e3000_Tc.png",

@@ -21,37 +21,38 @@ var dataMap;
 function init(par1, par2){
 	main = renderer.registerParts(
 		new Parts(
+			"body",
+			"window",
+			"body-cab_door",
+			"cab1",
+			"cab2",
 			"body-in",
 			"in1",
 			"in2",
+			"cabwall",
 			"in3",
 			"in4",
-			"light",
+			"cab",
+			"cooler",
+			"direction_screen",
+			"logo",
+			"obj1",
 			"obj2",
-			"obj3"));
-
-	main_notLight = render.registerParts(
-		new Parts(
-		"body",
-		"body-cab_door",
-		"cab",
-		"cab1",
-		"cab2",
-		"cabwall",
-		"cooler",
-		"direction_screen",
-		"panta2",
-		"shadow",
-		"under-Mc",
-		"under-Tc",
-		"logo",
-		"obj1", "wiper"));
-
+			"obj3",
+			"lightBase",
+			"panta2",
+			"shadow",
+			"under-Mc",
+			"under-Tc",
+			"wiper"));
 	mc = renderer.registerParts(new Parts("c_ctrl"));
 	doorLF = renderer.registerParts(new Parts("door_LF"));
 	doorLB = renderer.registerParts(new Parts("door_LB"));
 	doorRF = renderer.registerParts(new Parts("door_RF"));
 	doorRB = renderer.registerParts(new Parts("door_RB"));
+
+	lightF = renderer.registerParts(new Parts("lightF"));
+	lightB = renderer.registerParts(new Parts("lightB"));
 
 	lcd = renderer.registerParts(new Parts("lcd"));
 
@@ -123,7 +124,7 @@ function render(entity, pass, par3) {
 	TCC = TrainControllerClientManager.getTCC(entity);
 	doorM = 0.59;
 	GL11.glPushMatrix();
-
+	
 
 	if(entity != null){
 		var notch = entity.getNotch();
@@ -135,8 +136,8 @@ function render(entity, pass, par3) {
 
 	if (pass == 0) {
 		main.render(renderer);
-		main_notLight.render(renderer);
 		render_panta(entity, 7.0, "W51");
+		render_light(entity);
 		render_door(entity, doorM);
 		render_meter(entity);
 	}
@@ -146,8 +147,8 @@ function render(entity, pass, par3) {
 
 	if (pass > 1) {
 		main.render(renderer);
-		main_notLight.render(renderer);
 		render_panta(entity, 7.0, "W51");
+		render_light(entity);
 		render_door(entity, doorM);
 		render_meter(entity);
 	}
@@ -210,6 +211,38 @@ function render_meter(entity) {
 	renderer.rotate(-roRed, "Y", 0.5711, 1.0780, 8.1200);
 	needleRed.render(renderer);
 	GL11.glPopMatrix();
+}
+
+function render_light(entity) {
+	//var lightMove = 0;
+
+	//try {
+	//	lightMove = (entity.seatRotation) / 45;
+	//} catch (e) { }
+
+	////NGTLog.debug(lightMove);
+
+	//if (lightMove < 0) {
+	//	GL11.glPushMatrix();
+	//	lightF.render(renderer);
+	//	GL11.glPopMatrix();
+	//} else {
+	//	GL11.glPushMatrix();
+	//	lightB.render(renderer);
+	//	GL11.glPopMatrix();
+	//}
+	if (entity != null) {
+		if (entity.isControlCar()) {
+			GL11.glPushMatrix();
+			lightF.render(renderer);
+			GL11.glPopMatrix();
+		}
+		else {
+			GL11.glPushMatrix();
+			lightB.render(renderer);
+			GL11.glPopMatrix();
+		}
+	}
 }
 
 function render_door(entity, doorMove) {
