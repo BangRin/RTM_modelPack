@@ -134,7 +134,7 @@ function render(entity, pass, par3) {
 	var varsion = MCVersionChecker();
 	var st1 = 8;
 
-	if (entity != null) { //                             ٸ 
+	if (entity != null) { //                             
 		if (varsion == "1.7.10" || varsion == "1.8.9" || varsion == "1.9.4") {
 			st1 = entity.getTrainStateData(1) + 8;
 		} else {
