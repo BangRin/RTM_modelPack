@@ -27,12 +27,12 @@ function render(entity, pass, par3) {
 
 function renderWheel(angle) {
 	GL11.glPushMatrix();
-	renderer.rotate(angle, 'X', 0.0000000954, -0.5510, 1.06);
+	renderer.rotate(angle, 'X', 0.0, -0.5510, 1.0477);
 	wheelP.render(renderer);
 	GL11.glPopMatrix();
 
 	GL11.glPushMatrix();
-	renderer.rotate(angle, 'X', -0.0000000954, -0.5510, -1.06);
+	renderer.rotate(angle, 'X', 0.0, -0.5510, -1.0477);
 	wheelM.render(renderer);
 	GL11.glPopMatrix();
 }
