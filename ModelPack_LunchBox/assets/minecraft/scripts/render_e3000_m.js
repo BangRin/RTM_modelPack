@@ -128,8 +128,8 @@ function render(entity, pass, par3) {
 	}
 
 	if (pass == 1) {
-		//alpha.render(renderer);
-		//render_door_a(entity, doorM);
+		alpha.render(renderer);
+		render_door_a(entity, doorM);
 	}
 
 	if (pass > 1) {

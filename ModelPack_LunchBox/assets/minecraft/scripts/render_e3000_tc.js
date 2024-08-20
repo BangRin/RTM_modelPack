@@ -90,8 +90,8 @@ function render(entity, pass, par3) {
 	}
 
 	if (pass == 1) {
-		//alpha.render(renderer);
-		//render_door_a(entity, doorM);
+		alpha.render(renderer);
+		render_door_a(entity, doorM);
 	}
 
 	if (pass > 1) {
@@ -192,7 +192,7 @@ function render_door(entity, doorMove) {
 	GL11.glPopMatrix();
 }
 
-//##### render_Úâ÷â«É«¢ ####################
+//##### render_ï¿½ï¿½ï¿½ï¿½É«ï¿½ ####################
 function render_door_a(entity, doorMove) {
 
 	var doorMoveL = 0.0,

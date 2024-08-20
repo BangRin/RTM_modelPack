@@ -25,6 +25,7 @@
 	"smoothing": true,
 	"renderLight": true,
 	"notDisplayCab": true,
+	"doCulling": true,
 
 	"buttonTexture": "textures/train/e3000/button_e3000_M.png",
 
