@@ -22,7 +22,6 @@ function init(par1, par2){
 		new Parts(
 			"body",
 			"body-in",
-			"window",
 			"in1",
 			"in2",
 			"cooler",
@@ -41,6 +40,13 @@ function init(par1, par2){
 	doorLB = renderer.registerParts(new Parts("door_LB"));
 	doorRF = renderer.registerParts(new Parts("door_RF"));
 	doorRB = renderer.registerParts(new Parts("door_RB"));
+
+	alpha = renderer.registerParts(new Parts("window"));
+
+	doorLBa = renderer.registerParts(new Parts("door_LBa"));
+	doorLFa = renderer.registerParts(new Parts("door_LFa"));
+	doorRBa = renderer.registerParts(new Parts("door_RBa"));
+	doorRFa = renderer.registerParts(new Parts("door_RFa"));
 
 	lcd = renderer.registerParts(new Parts("lcd"));
 
@@ -83,7 +89,6 @@ function render_panta(entity, pantaDistance, pantaType) {
 
 	pantabase.render(renderer);
 
-	// ѫ D2
 	GL11.glPushMatrix();
 	renderer.rotate(-pCro1, 'X', 0.0, 3.0120, -5.6710);
 	pantaD21.render(renderer);
@@ -123,6 +128,8 @@ function render(entity, pass, par3) {
 	}
 
 	if (pass == 1) {
+		//alpha.render(renderer);
+		//render_door_a(entity, doorM);
 	}
 
 	if (pass > 1) {
@@ -148,6 +155,37 @@ function render(entity, pass, par3) {
 
 	RenderInnerLCD(entity, dataMap);
 
+}
+
+function render_door_a(entity, doorMove) {
+
+	var doorMoveL = 0.0,
+		doorMoveR = 0.0;
+
+	try {
+		doorMoveL = renderer.sigmoid(entity.doorMoveL / 60) * doorMove;
+		doorMoveR = renderer.sigmoid(entity.doorMoveR / 60) * doorMove;
+	} catch (e) { }
+
+	GL11.glPushMatrix();
+	GL11.glTranslatef(0.0, 0.0, doorMoveL);
+	doorLFa.render(renderer);
+	GL11.glPopMatrix();
+
+	GL11.glPushMatrix();
+	GL11.glTranslatef(0.0, 0.0, -doorMoveL);
+	doorLBa.render(renderer);
+	GL11.glPopMatrix();
+
+	GL11.glPushMatrix();
+	GL11.glTranslatef(0.0, 0.0, doorMoveR);
+	doorRFa.render(renderer);
+	GL11.glPopMatrix();
+
+	GL11.glPushMatrix();
+	GL11.glTranslatef(0.0, 0.0, -doorMoveR);
+	doorRBa.render(renderer);
+	GL11.glPopMatrix();
 }
 
 function render_door(entity, doorMove) {

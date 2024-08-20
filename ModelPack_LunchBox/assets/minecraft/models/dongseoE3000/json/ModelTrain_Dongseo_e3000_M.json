@@ -18,11 +18,10 @@
 	},
 
 	"bogieModel2": {
-		"modelFile": "dongseoE3000/bogie_ts-840_e3000.mqo",
-		"textures": [ [ "default", "textures/Bogie_TS-840_e3000.png" ] ],
+		"modelFile": "dongseoE3000/bogie_ts-841_e3000.mqo",
+		"textures": [ [ "default", "textures/Bogie_TS-841_e3000.png" ] ],
 		"rendererPath": "scripts/bogie_e3000.js"
 	},
-
 	"smoothing": true,
 	"renderLight": true,
 	"notDisplayCab": true,
@@ -31,13 +30,7 @@
 
 	"rollsignTexture": "textures/train/e3000/rollsign_e3000.png",
 	"rollsignNames": [
-		"Select_a_destination",
-		"Local_Shizuoka",
-		"Local_Shimizu",
-		"ComExp_Shizuoka",
-		"ComExp_Shimizu",
-		"Exp_Shizuoka",
-		"Exp_Shimizu",
+		"none",
 		"test_run",
 		"Not_in_service"
 	],
@@ -216,8 +209,8 @@
 		[ 0, 0, -5.67 ]
 	],
 
-	"accelerateion": 0.0020832,
-	"maxSpeed": [ 0.125, 0.25, 0.5, 0.75, 1 ],
+	"accelerateion": 0.0024304,
+	"maxSpeed": [ 0.36, 0.63, 1.05, 1.2, 1.60 ],
 
 	"trainDistance": 8.5
 }

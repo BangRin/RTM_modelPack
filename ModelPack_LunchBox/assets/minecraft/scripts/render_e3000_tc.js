@@ -21,7 +21,6 @@ function init(par1, par2){
 	main = renderer.registerParts(
 		new Parts(
 			"body",
-			"window",
 			"body-in",
 			"in1",
 			"in2",
@@ -43,11 +42,20 @@ function init(par1, par2){
 			"under-Mc",
 			"under-Tc",
 			"wiper"));
+
+	alpha = renderer.registerParts(new Parts("window"));
+
 	mc = renderer.registerParts(new Parts("c_ctrl"));
+
 	doorLB = renderer.registerParts(new Parts("door_LB"));
 	doorLF = renderer.registerParts(new Parts("door_LF"));
 	doorRB = renderer.registerParts(new Parts("door_RB"));
 	doorRF = renderer.registerParts(new Parts("door_RF"));
+
+	doorLBa = renderer.registerParts(new Parts("door_LBa"));
+	doorLFa = renderer.registerParts(new Parts("door_LFa"));
+	doorRBa = renderer.registerParts(new Parts("door_RBa"));
+	doorRFa = renderer.registerParts(new Parts("door_RFa"));
 
 	lightF = renderer.registerParts(new Parts("lightF"));
 	lightB = renderer.registerParts(new Parts("lightB"));
@@ -82,6 +90,8 @@ function render(entity, pass, par3) {
 	}
 
 	if (pass == 1) {
+		//alpha.render(renderer);
+		//render_door_a(entity, doorM);
 	}
 
 	if (pass > 1) {
@@ -179,6 +189,38 @@ function render_door(entity, doorMove) {
 	GL11.glPushMatrix();
 	GL11.glTranslatef(0, 0, doorR);
 	doorRF.render(renderer);
+	GL11.glPopMatrix();
+}
+
+//##### render_Úâ÷â«É«¢ ####################
+function render_door_a(entity, doorMove) {
+
+	var doorMoveL = 0.0,
+		doorMoveR = 0.0;
+
+	try {
+		doorMoveL = renderer.sigmoid(entity.doorMoveL / 60) * doorMove;
+		doorMoveR = renderer.sigmoid(entity.doorMoveR / 60) * doorMove;
+	} catch (e) { }
+
+	GL11.glPushMatrix();
+	GL11.glTranslatef(0.0, 0.0, doorMoveL);
+	doorLFa.render(renderer);
+	GL11.glPopMatrix();
+
+	GL11.glPushMatrix();
+	GL11.glTranslatef(0.0, 0.0, -doorMoveL);
+	doorLBa.render(renderer);
+	GL11.glPopMatrix();
+
+	GL11.glPushMatrix();
+	GL11.glTranslatef(0.0, 0.0, doorMoveR);
+	doorRFa.render(renderer);
+	GL11.glPopMatrix();
+
+	GL11.glPushMatrix();
+	GL11.glTranslatef(0.0, 0.0, -doorMoveR);
+	doorRBa.render(renderer);
 	GL11.glPopMatrix();
 }
 
